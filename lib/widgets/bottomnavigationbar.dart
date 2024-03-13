@@ -1,8 +1,8 @@
+import 'package:expense/Screens/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:expense/Screens/add.dart';
 import 'package:expense/Screens/home.dart';
 import 'package:expense/Screens/statistics.dart';
-import 'package:expense/Screens/profile.dart';
 
 class Bottom extends StatefulWidget {
   const Bottom({Key? key}) : super(key: key);
@@ -21,10 +21,11 @@ class _BottomState extends State<Bottom> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => Add_Screen()));
+              .push(MaterialPageRoute(builder: (context) => AddScreen()));
         },
         child: Icon(Icons.add),
-        backgroundColor: Color(0xff368983),
+        backgroundColor: Color(0xFF8A2BE2),
+
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
@@ -32,6 +33,7 @@ class _BottomState extends State<Bottom> {
         child: Padding(
           padding: const EdgeInsets.only(top: 7.5, bottom: 7.5),
           child: Row(
+            
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
@@ -43,7 +45,8 @@ class _BottomState extends State<Bottom> {
                 child: Icon(
                   Icons.home,
                   size: 30,
-                  color: index_color == 0 ? Color(0xff368983) : Colors.grey,
+                  color: index_color == 0 ? Color(0xFF8A2BE2)
+: Colors.grey,
                 ),
               ),
               GestureDetector(
@@ -55,33 +58,25 @@ class _BottomState extends State<Bottom> {
                 child: Icon(
                   Icons.bar_chart_outlined,
                   size: 30,
-                  color: index_color == 1 ? Color(0xff368983) : Colors.grey,
+                  color: index_color == 1 ? Color(0xFF8A2BE2)
+: Colors.grey,
                 ),
               ),
-              // GestureDetector(
-              //   onTap: () {
-              //     setState(() {
-              //       index_color = 2;
-              //     });
-              //   },
-              //   child: Icon(
-              //     Icons.account_balance_wallet_outlined,
-              //     size: 30,
-              //     color: index_color == 2 ? Color(0xff368983) : Colors.grey,
-              //   ),
-              // ),
+              //SizedBox(width: 10),
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    index_color = 3;
+                    index_color = 2;
                   });
                 },
                 child: Icon(
                   Icons.person_outlined,
                   size: 30,
-                  color: index_color == 3 ? Color(0xff368983) : Colors.grey,
+                  color: index_color == 2 ? Color(0xFF8A2BE2)
+ : Colors.grey,
                 ),
               ),
+              
             ],
           ),
         ),

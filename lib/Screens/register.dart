@@ -1,6 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
-
-import 'login.dart';
+import 'package:expense/Screens/login.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +11,6 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  Color newBlue = const Color(0xFFC1FAFF);
   Color newPurple = const Color(0xFFC6C1FF);
   Color newOrange = const Color(0xFFFFE5C1);
   final TextEditingController emailController = TextEditingController();
@@ -43,11 +40,8 @@ class _RegisterState extends State<Register> {
           'name': nameController.text,
           'email': emailController.text,
           'phone': phoneController.text,
-          'bio': '',
-          'profilePic': '',
-          'friends': [],
-          'friendRequests': [],
-          'pin': pinController.text,
+          
+         
         });
         _auth.currentUser!.updateDisplayName(nameController.text);
         debugPrint('User added to firestore');
@@ -75,10 +69,11 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: newBlue,
+      backgroundColor:Color(0xFF8A2BE2),
+
       appBar: AppBar(
-        backgroundColor: newPurple,
-        title: const Text('Register',
+        backgroundColor: Colors.white,
+        title: const Text('Register 📝',
             style: TextStyle(
               color: Colors.black,
               fontSize: 25,
@@ -87,139 +82,140 @@ class _RegisterState extends State<Register> {
         centerTitle: true,
         elevation: 2,
       ),
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            'Welcome to ChatMate',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 25,
-            ),
-          ),
-          const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: nameController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                labelText: 'Name',
+      body: SingleChildScrollView(
+        child: Center(
+          
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 20),
+            const Text(
+              'Welcome to Expense Tracker',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 25,
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: emailController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                labelText: 'Email',
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: phoneController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                labelText: 'Phone Number',
-              ),
-              keyboardType: TextInputType.phone,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: passwordController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                labelText: 'Password',
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              obscureText: true,
-              controller: confirmPasswordController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                labelText: 'Confirm Password',
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              obscureText: true,
-              maxLength: 4,
-              keyboardType: TextInputType.number,
-              controller: pinController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                labelText: '4-digit PIN',
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-              onPressed: () {
-                signUp();
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: newOrange,
-                foregroundColor: Colors.black,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-                textStyle: const TextStyle(
-                  fontSize: 20,
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: nameController,
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  labelText: 'Name',
                 ),
               ),
-              child: const Text('Register'),
             ),
-          ),
-          const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('Already have an account?',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                  )),
-              TextButton(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: emailController,
+                decoration: InputDecoration(
+                   fillColor: Colors.white,
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  labelText: 'Email',
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: phoneController,
+                decoration: InputDecoration(
+                   fillColor: Colors.white,
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  labelText: 'Phone Number',
+                ),
+                keyboardType: TextInputType.phone,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: passwordController,
+                decoration: InputDecoration(
+                   fillColor: Colors.white,
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  labelText: 'Password',
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                obscureText: true,
+                controller: confirmPasswordController,
+                decoration: InputDecoration(
+                   fillColor: Colors.white,
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  labelText: 'Confirm Password',
+                ),
+              ),
+            ),
+           
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const Login();
-                  }));
+                  signUp();
                 },
-                child: const Text('Login',
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: newOrange,
+                  foregroundColor: Colors.black,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                  textStyle: const TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                child: const Text('Register'),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Already have an account?',
                     style: TextStyle(
-                      color: Colors.blue,
+                      color: Colors.white,
                       fontSize: 20,
                     )),
-              ),
-            ],
-          ),
-        ],
-      )),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return const Login();
+                    }));
+                  },
+                  child: const Text('Login',
+                  
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                      )),
+                ),
+              ],
+            ),
+          ],
+        )),
+      ),
     );
   }
 }

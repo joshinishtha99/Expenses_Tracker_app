@@ -1,5 +1,3 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:expense/data/model/add_date.dart';
 import 'package:expense/data/utlity.dart';
@@ -37,6 +35,7 @@ class _ChartState extends State<Chart> {
         break;
       case 3:
         a = year();
+
         j = false;
         break;
       default:

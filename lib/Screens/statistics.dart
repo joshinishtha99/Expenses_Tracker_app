@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:expense/data/utlity.dart';
 import 'package:expense/widgets/chart.dart';
+
 import '../data/model/add_date.dart';
+import '../data/top.dart';
 
 class Statistics extends StatefulWidget {
   const Statistics({Key? key}) : super(key: key);
@@ -70,7 +73,7 @@ class _StatisticsState extends State<Statistics> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: index_color == index
-                                  ? Color.fromARGB(255, 47, 125, 121)
+                                  ? Color.fromARGB(255, 137, 64, 215)
                                   : Colors.white,
                             ),
                             alignment: Alignment.center,
@@ -123,10 +126,10 @@ class _StatisticsState extends State<Statistics> {
             delegate: SliverChildBuilderDelegate(
           (context, index) {
             return ListTile(
-              leading: ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: Image.asset('images/${a[index].name}.png', height: 40),
-              ),
+              // leading: ClipRRect(
+              //   borderRadius: BorderRadius.circular(5),
+              //   child: Image.asset('images/${a[index].name}.png', height: 40),
+              // ),
               title: Text(
                 a[index].name,
                 style: TextStyle(
